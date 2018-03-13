@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QList>
+#include <QSharedMemory>
 #include "ccapteurhum_.SI7021_A20.h"
 #include "ccapteurdist_vl53l0x.h"
 #include "ccapteurgps.h"
@@ -32,6 +33,7 @@ private:
   CCapteurGps *gps;
 //  CSave *save;
   QList<QThread *> capteurs;
+  QSharedMemory *mshm;
 
 };
 

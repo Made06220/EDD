@@ -36,7 +36,8 @@ SOURCES += main.cpp\
     ccapteurtem_SI7021_A20.cpp \
     ccapteurgps.cpp \
     ../Desktop/cserialport.cpp \
-    cserialport.cpp
+    cserialport.cpp \
+    csave.cpp
 
 HEADERS  += appedd.h \
     cmsg.h \
@@ -50,6 +51,7 @@ HEADERS  += appedd.h \
     ccapteurtem_SI7021_A20.h \
     ccapteurhum_.SI7021_A20.h \
     ccapteurgps.h \
-    cserialport.h
+    cserialport.h \
+    csave.h
 
 FORMS    += appedd.ui

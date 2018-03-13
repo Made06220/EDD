@@ -16,7 +16,22 @@ AppEdd::AppEdd(QWidget *parent) :
   temp = new CCapteurTem_SI7021_A20(this, mNum);
   gps = new CCapteurGps(this, mNum);
 //  save = new CSave(this, nbCapteur);
-  capteurs.append(new CCapteurHum_SI7021_A20(this, data[i].numCap));
+  capteurs.append(new CCapteurHum_SI7021_A20(this, data[1].numCap));
+  capteurs.append(new CCapteurDist_VL53L0X(this, data[2].numCap));
+  capteurs.append(new CCapteurTem_SI7021_A20(this, data[3].numCap));
+  capteurs.append(new CCapteurGps(this, data[4].numCap));
+//  capteurs.append(CSave(this, data[5].numCap));
+
+// Initialisation de la zone de mémoire partagée
+  mshm = new QSharedMemory(KEY, this);
+    mshm->attach();
+    if (!mshm->isAttached())
+    {
+      int res = mshm->create(NBMAXCAP*sizeof(T_Memo));
+      if(res == false)
+        qDebug(mshm->errorString().toStdString().c_str());
+    }
+
 }
 
 AppEdd::~AppEdd()
